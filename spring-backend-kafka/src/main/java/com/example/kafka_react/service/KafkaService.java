@@ -19,7 +19,8 @@ public class KafkaService {
     }
     @KafkaListener(topics = "testing" , groupId = "my-group")
     public String consumeData(String message){
-        this.message = message;
+        String m = message.substring(0,message.length() -1);
+        this.message = m;
         return message;
     }
 
